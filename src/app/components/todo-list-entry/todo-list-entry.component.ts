@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 
 
@@ -17,12 +17,23 @@ export class TodoListEntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      item: ['']
+      item: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
 
-  addItem() {
-    console.log(this.form.value);
+  get item() { return this.form.get('item'); }
+
+
+  addItem(focusMe: HTMLInputElement) {
+    if (this.form.invalid) {
+      console.warn('There are errors');
+      focusMe.focus();
+    } else {
+      console.log(this.form.value);
+      focusMe.value = '';
+      this.form.reset();
+      focusMe.focus();
+    }
   }
 
 }
