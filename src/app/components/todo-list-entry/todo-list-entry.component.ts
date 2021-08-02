@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+
+
 
 @Component({
   selector: 'app-todo-list-entry',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListEntryComponent implements OnInit {
 
-  constructor() { }
+
+  form!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      item: ['']
+    });
+  }
+
+  addItem() {
+    console.log(this.form.value);
   }
 
 }

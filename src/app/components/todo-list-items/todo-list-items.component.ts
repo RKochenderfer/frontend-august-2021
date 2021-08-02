@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListItemsComponent implements OnInit {
 
+  items: TodoItemModel[] = [
+    { description: 'Mow Lawn' },
+    { description: 'Empty boxes from Garage' }
+  ];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+}
+
+interface TodoItemModel {
+  description: string;
 }
