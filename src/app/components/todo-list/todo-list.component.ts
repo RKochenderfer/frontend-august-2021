@@ -18,4 +18,8 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addToList(description: string) {
+    this.items = [{ description }, ...this.items];
+  }
+
 }
