@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LearningListItem } from 'src/app/models/learning.models';
 
 @Component({
   selector: 'app-learning-path-list',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LearningPathListComponent implements OnInit {
 
+  items: LearningListItem[] = [
+    { id: '1', topic: 'Docker', competency: 'Competency' },
+    { id: '2', topic: 'Jazz Piano', competency: 'None', notes: 'Give up' }
+  ];
   constructor() { }
 
   ngOnInit(): void {
