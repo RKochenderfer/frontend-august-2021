@@ -1,7 +1,7 @@
 <ul class="list-unstyled">
 
   <li class="card"
-      *ngFor="let item of items">
+      *ngFor="let item of (items$ | async) || []">
     <div class="card-header">
       <span>{{ item.topic }}</span>
     </div>

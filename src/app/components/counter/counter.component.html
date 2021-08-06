@@ -7,6 +7,6 @@
 </div>
 <div>
   <button class="btn btn-danger"
-          [disabled]="(current$ | async) === 0"
+          [hidden]="(current$ | async) === 0"
           (click)="reset()">RESET</button>
 </div>
